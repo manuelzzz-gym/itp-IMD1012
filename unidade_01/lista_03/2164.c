@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-float fibo(int n)
+double fibo(int n)
 {
     return (pow((1 + sqrt(5)) / 2, n) - pow((1 - sqrt(5)) / 2, n)) / sqrt(5);
 }
