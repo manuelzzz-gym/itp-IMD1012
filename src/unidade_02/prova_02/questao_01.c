@@ -13,7 +13,7 @@ double soma(double matriz[5][5])
     return soma;
 }
 
-double media(double matriz[5][5])
+double multiplicacao(double matriz[5][5])
 {
     double produto = 1;
     for (int i = 0; i < 5; i++)
@@ -49,7 +49,7 @@ int main()
     }
     else if (operacao == 'M')
     {
-        printf("%.1lf\n", media(matriz));
+        printf("%.1lf\n", multiplicacao(matriz));
     }
 
     return 0;
