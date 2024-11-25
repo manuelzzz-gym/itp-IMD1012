@@ -15,7 +15,16 @@ double soma(double matriz[5][5])
 
 double media(double matriz[5][5])
 {
-    return soma(matriz) / 10.0;
+    double produto = 1;
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = i + 1; j < 5; j++)
+        {
+            produto *= matriz[i][j];
+        }
+    }
+
+    return produto;
 }
 
 int main()
