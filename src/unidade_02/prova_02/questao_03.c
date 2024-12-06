@@ -1,34 +1,57 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
 
-void toLowerCase(char str[]) {
-    for (int i = 0; str[i]; i++) {
-        str[i] = tolower(str[i]);
+typedef struct
+{
+    int vogais[5];
+    int total;
+} Vogais;
+
+void contarNumeroVogais(Vogais *vogais, char c)
+{
+    int indice = -1;
+    switch (c)
+    {
+    case 'a':
+        indice = 0;
+        break;
+    case 'e':
+        indice = 1;
+        break;
+    case 'i':
+        indice = 2;
+        break;
+    case 'o':
+        indice = 3;
+        break;
+    case 'u':
+        indice = 4;
+        break;
+    }
+
+    if (indice != -1)
+    {
+        vogais->vogais[indice]++;
+        vogais->total++;
     }
 }
 
-bool isPalindromo(char palavra[]) {
-    toLowerCase(palavra);
-    int tamanho = strlen(palavra);
-    for (int i = 0; i < tamanho / 2; i++) {
-        if (palavra[i] != palavra[tamanho - i - 1]) {
-            return false;
-        }
-    }
-    return true;
-}
+int main()
+{
+    Vogais vogais = {0, 0, 0, 0, 0};
+    char texto[100];
 
-int main(int argc, char const *argv[]) {
-    char palavra[100];
-    scanf("%s", palavra);
+    scanf(" %[^\n]", texto);
 
-    if (isPalindromo(palavra)) {
-        printf("Palíndromo\n");
-    } else {
-        printf("Não é um palíndromo\n");
+    for (int i = 0; i < strlen(texto); i++)
+    {
+        texto[i] = tolower(texto[i]);
+        contarNumeroVogais(&vogais, texto[i]);
     }
+
+    printf("%d - %d - %d - %d - %d - %d\n", vogais.total, vogais.vogais[0], vogais.vogais[1], vogais.vogais[2],
+           vogais.vogais[3], vogais.vogais[4]);
 
     return 0;
 }

@@ -1,45 +1,34 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 #include <ctype.h>
 
-bool isPalindromo(char *palavra)
+void toLowerCase(char str[])
 {
-    int i = 0;
-    int j = 0;
-    while (palavra[j] != '\0')
+    for (int i = 0; str[i]; i++)
     {
-        j++;
+        str[i] = tolower(str[i]);
     }
-    j--;
+}
 
-    while (i < j)
+bool isPalindromo(char palavra[])
+{
+    toLowerCase(palavra);
+    int tamanho = strlen(palavra);
+    for (int i = 0; i < tamanho / 2; i++)
     {
-        while (i < j && !isalpha(palavra[i]))
-        {
-            i++;
-        }
-        while (i < j && !isalpha(palavra[j]))
-        {
-            j--;
-        }
-
-        if (tolower(palavra[i]) != tolower(palavra[j]))
+        if (palavra[i] != palavra[tamanho - i - 1])
         {
             return false;
         }
-        i++;
-        j--;
     }
-
     return true;
 }
 
 int main(int argc, char const *argv[])
 {
     char palavra[100];
-    fgets(palavra, sizeof(palavra), stdin);
-
-    palavra[strcspn(palavra, "\n")] = '\0';
+    scanf("%s", palavra);
 
     if (isPalindromo(palavra))
     {
