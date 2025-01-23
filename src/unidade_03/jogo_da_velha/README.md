@@ -33,9 +33,9 @@ Ao final, o programa deve informar quem é o vencedor ou dizer se houve empate.
 
 ## Solução:
 
-1. Cria-se um tabuleiro 3x3 alocado dinamicamente em “tabuleiro.h”.  
+1. Cria-se um tabuleiro 3x3 alocado dinamicamente em "tabuleiro.h".  
 2. Define-se uma estrutura de dados (Tabuleiro) que contém o tabuleiro e os jogadores, além do controle de rodada.  
-3. Em “main.c”, inicializa-se o tabuleiro e define-se os jogadores (com símbolos X e O).  
+3. Em "main.c", inicializa-se o tabuleiro e define-se os jogadores (com símbolos X e O).  
 4. Na vez do jogador, o programa solicita a posição desejada; valida se está livre e marca. Em seguida, alterna a rodada.  
-5. Se preferir, implementa-se uma função de “jogada da máquina”.  
+5. Sendo a vez da máquina, a função "jogadaMaquina" é chamada e a máquina faz uma jogada necessariamente válida e aleatória.
 6. O jogo continua até que um jogador seja vencedor ou o tabuleiro fique cheio.
