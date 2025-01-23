@@ -7,7 +7,6 @@
 
 int main(int argc, char const *argv[])
 {
-
     Tabuleiro tabuleiro;
 
     Jogador jogadorReal;
@@ -19,7 +18,6 @@ int main(int argc, char const *argv[])
     iniciarTabuleiro(&tabuleiro, &jogadorReal, &jogadorMaquina);
 
     POSICOES posicaoJogada;
-    Jogador vencedor;
     while (1)
     {
         exibirTabuleiro(&tabuleiro);
@@ -28,7 +26,7 @@ int main(int argc, char const *argv[])
         {
             int posicaoEscolhida = 0;
             printf("Digite a posicao: ");
-            scanf("%d", &posicaoEscolhida);
+            scanf("%d", posicaoEscolhida);
 
             if (posicaoEscolhida < 1 || posicaoEscolhida > 9)
             {
@@ -49,31 +47,6 @@ int main(int argc, char const *argv[])
         {
             jogadaMaquina(&tabuleiro);
         }
-
-        vencedor = verificarVencedor(&tabuleiro);
-
-        if (vencedor.simbolo == jogadorReal.simbolo)
-        {
-            exibirTabuleiro(&tabuleiro);
-            printf("Voce venceu!\n");
-            break;
-        }
-        else if (vencedor.simbolo == jogadorMaquina.simbolo)
-        {
-            exibirTabuleiro(&tabuleiro);
-            printf("Voce perdeu!\n");
-            break;
-        }
-        else
-        {
-            if (isTabuleiroCheio(&tabuleiro))
-            {
-                printf("Empate!\n");
-                break;
-            }
-        }
-
-        atualizarRodada(&tabuleiro);
     }
 
     return 0;
