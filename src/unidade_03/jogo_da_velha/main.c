@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
         {
             int posicaoEscolhida = 0;
             printf("Digite a posicao: ");
-            scanf("%d", posicaoEscolhida);
+            scanf("%d", &posicaoEscolhida);
 
             if (posicaoEscolhida < 1 || posicaoEscolhida > 9)
             {
@@ -49,12 +49,12 @@ int main(int argc, char const *argv[])
         }
     }
 
-    for (int i = 0; i < 3; i++)
-    {
-        free(tabuleiro.tabuleiro[i]);
-    }
+    // for (int i = 0; i < 3; i++)
+    // {
+        // free(tabuleiro.tabuleiro[i]);
+    // }
 
-    free(tabuleiro.tabuleiro);
+    // free(tabuleiro.tabuleiro);
 
     return 0;
 }
