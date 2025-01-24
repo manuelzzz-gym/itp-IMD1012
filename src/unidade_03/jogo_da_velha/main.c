@@ -49,6 +49,30 @@ int main(int argc, char const *argv[])
             jogadaMaquina(&tabuleiro);
             tabuleiro.rodada = JOGADOR1;
         }
+
+        Jogador vencedor = verificarVencedor(&tabuleiro);
+        if (vencedor.simbolo != ' ')
+        {
+            exibirTabuleiro(&tabuleiro);
+            if (vencedor.simbolo == 'X')
+            {
+                printf("Você venceu!\n");
+                return 0;
+            }
+            else if (vencedor.simbolo == 'O')
+            {
+                printf("Máquina venceu!\n");
+                return 0;
+            }
+        }
+        else
+        {
+            if (isTabuleiroCheio(&tabuleiro))
+            {
+                printf("Empate!\n");
+                return 0;
+            }
+        }
     }
 
     for (int i = 0; i < 3; i++)
