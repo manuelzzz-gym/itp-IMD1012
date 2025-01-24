@@ -42,19 +42,21 @@ int main(int argc, char const *argv[])
             }
 
             marcarTabuleiro(&tabuleiro, posicaoJogada, &jogadorReal);
+            tabuleiro.rodada = JOGADOR2;
         }
         else
         {
             jogadaMaquina(&tabuleiro);
+            tabuleiro.rodada = JOGADOR1;
         }
     }
 
-    // for (int i = 0; i < 3; i++)
-    // {
-        // free(tabuleiro.tabuleiro[i]);
-    // }
+    for (int i = 0; i < 3; i++)
+    {
+        free(tabuleiro.tabuleiro[i]);
+    }
 
-    // free(tabuleiro.tabuleiro);
+    free(tabuleiro.tabuleiro);
 
     return 0;
 }
