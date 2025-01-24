@@ -49,5 +49,12 @@ int main(int argc, char const *argv[])
         }
     }
 
+    for (int i = 0; i < 3; i++)
+    {
+        free(tabuleiro.tabuleiro[i]);
+    }
+
+    free(tabuleiro.tabuleiro);
+
     return 0;
 }

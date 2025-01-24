@@ -68,7 +68,7 @@ int main()
     int n, i, j;
     char **mat;
 
-    printf("Digite o tamanho do tabuleiro: ");
+    printf("Digite o tamanho do tabuleiro: \n");
     scanf("%d", &n);
 
     mat = calloc(n, sizeof(char *));
@@ -94,6 +94,8 @@ int main()
     {
         printf("Nao foi possivel encontrar uma solucao.\n");
     }
+
+    free(mat);
 
     return 0;
 }
